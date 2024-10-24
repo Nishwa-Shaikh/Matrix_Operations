@@ -42,3 +42,10 @@ class Matrix:
             print(result)
         else:
             print("Matrix should not be empty")
+
+    def determinant(self):
+        if self.Mat1 is not None and self.Mat1.shape[0] == self.Mat1.shape[1]:
+            result = np.linalg.det(self.Mat1)
+            print(f"Determinant is: {result}")
+        else:
+            print("Matrix must be square")
