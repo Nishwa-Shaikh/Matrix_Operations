@@ -2,8 +2,8 @@ import numpy as np
 
 class Matrix:
     def __init__(self, Mat1=None, Mat2=None):
-        self.Mat1=np.array(Mat1)
-        self.Mat2=np.array(Mat2)
+        self.Mat1=np.array(Mat1) if Mat1 is not None else None
+        self.Mat2=np.array(Mat2) if Mat2 is not None else None
 
     def addition(self):
         if np.shape(self.Mat1)==np.shape(self.Mat2):
@@ -27,5 +27,12 @@ class Matrix:
             print("Dimensions should be same")
     
     def inverse(self):
-        
+        if self.Mat1 is not None and self.Mat1.shape[0]==self.Mat1.shape[1] and self.Mat1.ndim==2:
+            if np.linalg.det(self.Mat1)!=0:
+                result=np.linalg.inv(self.Mat1)
+                print(f"Inverse is: {result}")
+            else:
+                print('Singular matrix is not allowed')
+        else:
+            print('Matrix must be square')
     
