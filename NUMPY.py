@@ -36,3 +36,9 @@ class Matrix:
         else:
             print('Matrix must be square')
     
+    def Transpose(self):
+        if self.Mat1 is not None:
+            result=self.Mat1.transpose()
+            print(result)
+        else:
+            print("Matrix should not be empty")
